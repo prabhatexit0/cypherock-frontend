@@ -14,10 +14,6 @@ export const columns: IWalletTableColumn[] = [
     accessor: "value",
   },
   {
-    header: "Price",
-    accessor: "price",
-  },
-  {
     header: "Actions",
     accessor: "actions",
   },

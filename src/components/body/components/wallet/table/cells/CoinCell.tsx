@@ -1,12 +1,25 @@
 import { CellWrapper } from "./cell.styled";
 import styled from "styled-components";
-import bitcoinIcon from "../../../../../../assets/bitcoin-icon.svg";
+import bitIcon from "../../../../../../assets/bitcoin-icon.svg";
+import ethIcon from "../../../../../../assets/ethereum-icon.svg";
+import binIcon from "../../../../../../assets/binance-icon.svg";
 
 function CoinCell({ coin }: { coin: string }) {
+  const getIcon = () => {
+    switch (coin.toLowerCase()) {
+      case "binance":
+        return binIcon;
+      case "ethereum":
+        return ethIcon;
+      case "bitcoin":
+        return bitIcon;
+    }
+  };
+
   return (
     <CellWrapper>
       <ImageTitleContainer>
-        <img src={bitcoinIcon} /> {coin}
+        <img src={getIcon()} /> {coin}
       </ImageTitleContainer>
     </CellWrapper>
   );

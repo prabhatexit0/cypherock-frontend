@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ICoin, IWalletTableColumn } from "../wallet.interfaces";
-import CoinCell from "./cells/CoinCell";
+import { CoinCell, HoldingCell, ValueCell, ActionCell } from "./cells";
 
 type WalletTablePropType = {
   data: ICoin[];
@@ -28,13 +28,12 @@ function WalletTable({ data, columns }: WalletTablePropType) {
           </tr>
         </Thead>
         <Tbody>
-          {data.map((obj) => (
-            <Tr>
+          {data.map((obj, idx) => (
+            <Tr key={idx}>
               <CoinCell coin={obj.coin} />
-              <td>{obj.holding}</td>
-              <td>{obj.value}</td>
-              <td>{obj.price}</td>
-              <td>send/recieve</td>
+              <HoldingCell obj={obj} />
+              <ValueCell obj={obj} />
+              <ActionCell />
             </Tr>
           ))}
         </Tbody>

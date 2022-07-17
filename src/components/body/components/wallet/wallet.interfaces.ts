@@ -7,5 +7,4 @@ export interface ICoin {
   coin: string;
   holding: string;
   value: string;
-  price: string;
 }

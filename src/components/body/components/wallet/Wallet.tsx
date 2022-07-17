@@ -11,29 +11,22 @@ const tableData: ICoin[] = [
     coin: "Bitcoin",
     holding: "0.05",
     value: "$ 1.0002",
-    price: "$ 1.0002",
   },
   {
-    coin: "Bitcoin",
+    coin: "Ethereum",
     holding: "0.05",
     value: "$ 1.0002",
-    price: "$ 1.0002",
   },
   {
-    coin: "Bitcoin",
+    coin: "Binance",
     holding: "0.05",
     value: "$ 1.0002",
-    price: "$ 1.0002",
   },
 ];
 
 function Wallet() {
   return (
     <WalletWrapper>
-      <div className="default__container">
-        <h4>Synchronized</h4>
-      </div>
-
       <div className="default__container">
         <TextInput placeholder="Search Your Coin." />
         <DefaultBorderWrapper>

@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     scroll-behavior: smooth;
     transition: all 0.375 ease-in-outp;
-    font-family: "Avenir LT Std 65 Medium";
+    font-family: "Avenir LT Std 35 light";
   }
   ::-webkit-scrollbar {
     height: 6px;

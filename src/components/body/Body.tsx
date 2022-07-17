@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import DefaultPage from "./pages/default-page";
-import WalletPage from "./pages/wallet-page";
+import Default from "./components/default/Default";
+import WalletContainer from "./components/wallet/WalletContainer";
 import { Routes, Route } from "react-router-dom";
 
 function Body() {
   return (
     <MainDisplayWrapper>
       <Routes>
-        <Route path="/" element={<DefaultPage />} />
-        <Route path="/wallet" element={<WalletPage />} />
+        <Route path="/" element={<Default />} />
+        <Route path="/wallet" element={<WalletContainer />} />
       </Routes>
     </MainDisplayWrapper>
   );

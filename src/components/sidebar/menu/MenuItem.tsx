@@ -6,9 +6,10 @@ type MenuItemProps = {
   title: string;
   route?: string;
   children?: JSX.Element[] | null;
+  icon: string;
 };
 
-function MenuItem({ title, route = "", children = null }: MenuItemProps) {
+function MenuItem({ title, route = "", children = null, icon }: MenuItemProps) {
   const [showChildren, setShowChildren] = useState<boolean>(false);
   let navigate = useNavigate();
 
@@ -19,7 +20,10 @@ function MenuItem({ title, route = "", children = null }: MenuItemProps) {
 
   return (
     <MenuItemWrapper>
-      <TitleWrapper onClick={handleTitleClick}>{title}</TitleWrapper>
+      <TitleWrapper onClick={handleTitleClick}>
+        {" "}
+        <img src={icon} alt="" /> {title}
+      </TitleWrapper>
       <ChildrenContainer>
         {showChildren
           ? children?.map((child: any) => <ChildWrapper>{child}</ChildWrapper>)
@@ -32,12 +36,17 @@ function MenuItem({ title, route = "", children = null }: MenuItemProps) {
 export default MenuItem;
 
 const TitleWrapper = styled("div")`
-  font-size: 1rem;
-  margin: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  padding: 1rem;
+  font-family: "Avenir LT Std 35 Light";
 `;
 
 const ChildrenContainer = styled("div")`
-  margin-left: 2rem;
+  margin-left: 4rem;
+  font-size: 0.75rem;
 `;
 const ChildWrapper = styled("div")`
   margin-bottom: 1rem;
@@ -48,5 +57,5 @@ const MenuItemWrapper = styled("div")`
   height: max-content;
   border-bottom: 2px solid ${(props) => props.theme.border};
   cursor: pointer;
-  font-family: "Avenir LT Std 35 Light";
+  padding: 0.75rem;
 `;

@@ -3,7 +3,7 @@ import { GlobalStyle, darkTheme } from './theme/GlobalStyles'
 import { ThemeProvider } from 'styled-components'
 import Sidebar from './components/sidebar/Sidebar'
 import Navbar from './components/navbar/Navbar'
-import MainDisplay from './components/display/MainDisplay'
+import Body from './components/body/Body'
 import styled from 'styled-components'
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Navbar/>
       <SidebarDisplayWrapper>
         <Sidebar/>
-        <MainDisplay/>
+        <Body/>
       </SidebarDisplayWrapper>
     </ThemeProvider>
   )

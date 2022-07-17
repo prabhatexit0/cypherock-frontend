@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import cylogo from '../../assets/cylogo.svg'
+import cylogo from '../../../assets/cylogo.svg'
 
-function DefaultDisplay() {
+function Default() {
   return(
     <DefaultDisplayWrapper>
       <LogoContainer src={cylogo} />
@@ -9,7 +9,7 @@ function DefaultDisplay() {
   )
 }
 
-export default DefaultDisplay
+export default Default
 
 const LogoContainer = styled('img')`
   height: 3rem;

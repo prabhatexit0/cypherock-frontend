@@ -1,5 +1,6 @@
 import styled from "styled-components";
-function WalletDisplay() {
+
+function Wallet() {
   return (
     <WalletDisplayWrapper>
       this is wallet
@@ -7,7 +8,7 @@ function WalletDisplay() {
   )
 }
 
-export default WalletDisplay
+export default Wallet
 
 const WalletDisplayWrapper = styled('div')`
   width: 100%;

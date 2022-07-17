@@ -1,15 +1,15 @@
 import styled from "styled-components"
-import DefaultDisplay from "./DefaultDisplay"
+import Default from "./pages/default"
 
-function MainDisplay() {
+function Body() {
   return (
     <MainDisplayWrapper>
-      <DefaultDisplay/>
+      <Default/>
     </MainDisplayWrapper>
   )
 }
 
-export default MainDisplay
+export default Body
 
 const MainDisplayWrapper = styled('div')`
   width: 100%;

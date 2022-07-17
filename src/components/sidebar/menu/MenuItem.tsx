@@ -23,7 +23,7 @@ function MenuItem({ title, children = null }: MenuItemProps) {
   );
 }
 
-export default MenuItem;
+export default MenuItem
 
 const TitleWrapper = styled("div")`
   font-size: 1rem;

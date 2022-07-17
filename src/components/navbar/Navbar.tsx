@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import cylogo from './cylogo.svg'
+import cylogo from '../../assets/cylogo.svg'
 
 function Navbar() {
   return (

@@ -1,8 +1,13 @@
 @font-face {
   font-family: 'Avenir LT Std 65 Medium';
-  src: local('Avenir LT Std 65 Medium'), url('/public/fonts/Avenir LT Std 65 Medium.otf') format('truetype');
+  src: local('Avenir LT Std 65 Medium'), url('/public/fonts/Avenir LT Std 65 Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Avenir LT Std 35 Light';
+  src: local('Avenir LT Std 35 Light'), url('/public/fonts/Avenir LT Std 35 Light.otf') format('opentype');
 }
 
 :root {
-  font-family: 'Avenir LT Std 65 Medium';
+  font-family: 'Avenir LT Std 35 Light';
 }

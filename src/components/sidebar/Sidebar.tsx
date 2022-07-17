@@ -12,7 +12,7 @@ function Sidebar() {
     <SidebarWrapper>
       <MenuItemsContainer>
         <MenuItem title="Portfolio" />
-        <MenuItem title="Wallets" children={walletItems} />
+        <MenuItem title="Wallets" route="/wallet" children={walletItems} />
         <MenuItem title="Last Transaction" />
         <MenuItem title="Tutorials" />
         <MenuItem title="Settings" />
@@ -36,13 +36,13 @@ const SidebarWrapper = styled("div")`
   justify-content: space-between;
 `;
 const MenuItemsContainer = styled("div")`
-  padding:  3rem 0;
+  padding: 3rem 0;
 `;
 
-const SupportButton = styled('button')`
+const SupportButton = styled("button")`
   height: 3rem;
   width: 10rem;
-  background-color: ${props => props.theme.active};
+  background-color: ${(props) => props.theme.active};
   font-size: 1rem;
   border-radius: 1em;
-`
+`;

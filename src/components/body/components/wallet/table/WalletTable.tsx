@@ -97,7 +97,6 @@ const Thead = styled("thead")`
 `;
 
 const Tbody = styled("tbody")`
-  height: 10rem;
   overflow-y: scroll;
 `;
 

@@ -1,11 +1,12 @@
 import create from "zustand";
-import { IWallet } from "../interfaces/wallet.interfaces";
+import { ICoin, IWallet } from "../interfaces/wallet.interfaces";
 
 const useStore = create<{
   wallets?: IWallet[];
   setWallets?: (newWallets: IWallet[]) => void;
   currentWallet?: IWallet | null;
   setCurrentWallet?: (newWallet: IWallet) => void;
+  setCoinsCurrentWallet?: (coins: ICoin[]) => void;
 }>((set) => ({
   wallets: [],
   setWallets: (newWallets: IWallet[]) => {

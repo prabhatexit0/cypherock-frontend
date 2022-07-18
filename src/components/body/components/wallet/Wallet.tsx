@@ -8,7 +8,8 @@ import { ICoin, IWallet } from "../../../../interfaces/wallet.interfaces";
 import { useWalletStore } from "../../../../stores/WalletStore";
 
 function Wallet({ name, coins }: IWallet) {
-  const { currentWallet, setCurrentWallet } = useWalletStore();
+  const { currentWallet, setCurrentWallet, wallets, setWallets } =
+    useWalletStore();
 
   const handleCoinAdd = () => {
     let coin: ICoin = {
@@ -16,6 +17,32 @@ function Wallet({ name, coins }: IWallet) {
       holding: "12",
       value: "12300",
     };
+
+    if (currentWallet !== undefined || currentWallet !== null) {
+      setCurrentWallet!({
+        name: currentWallet?.name!,
+        coins: [...currentWallet!.coins, coin],
+      });
+
+      const newWallets: IWallet[] = [];
+      if (
+        wallets === undefined ||
+        currentWallet === undefined ||
+        currentWallet === null
+      )
+        return;
+
+      for (let i = 0; i < wallets.length; i++) {
+        if (wallets[i].name === currentWallet.name) {
+          newWallets.push(currentWallet);
+        } else {
+          newWallets.push(wallets[i]);
+        }
+      }
+
+      if (newWallets !== null || newWallets !== undefined)
+        setWallets!(newWallets);
+    }
   };
 
   return (
@@ -23,9 +50,9 @@ function Wallet({ name, coins }: IWallet) {
       <div className="default__container">
         <TextInput placeholder="Search Your Coin." />
         <DefaultBorderWrapper>
-          <button>
-            <AddIcon onClick={handleCoinAdd} />
-            ADD ICON
+          <button onClick={handleCoinAdd}>
+            <AddIcon />
+            ADD COIN
           </button>
           {" | "}
           <button>

@@ -36,7 +36,7 @@ export default Sidebar;
 
 const SidebarWrapper = styled("div")`
   min-height: 80vh;
-  width: 20rem;
+  width: 17rem;
   border-radius: 1em;
   background-color: ${(props) => props.theme.secondary};
 
@@ -52,9 +52,13 @@ const MenuItemsContainer = styled("div")`
 const SupportButton = styled("button")`
   height: 3rem;
   width: 100%;
-  background-color: ${(props) => props.theme.primary};
+  background-color: #4b3c2b;
   font-size: 1rem;
   border-radius: inherit;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  color: white;
+  font-weight: 400;
+  border: none;
+  outline: none;
 `;

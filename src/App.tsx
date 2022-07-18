@@ -26,7 +26,9 @@ export default App;
 
 const SidebarDisplayWrapper = styled("div")`
   display: flex;
+  align-items: center;
   gap: 1rem;
-  padding: 1rem;
   width: 100%;
+  height: 90vh;
+  padding: 0 3rem;
 `;

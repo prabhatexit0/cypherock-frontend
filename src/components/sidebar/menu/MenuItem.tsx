@@ -57,5 +57,4 @@ const MenuItemWrapper = styled("div")`
   height: max-content;
   border-bottom: 2px solid ${(props) => props.theme.border};
   cursor: pointer;
-  padding: 0.75rem;
 `;

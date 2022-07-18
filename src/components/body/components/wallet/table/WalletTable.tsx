@@ -82,12 +82,16 @@ const Table = styled("table")`
   tr,
   th,
   td {
-    padding: 1rem;
+    padding: 0.5rem;
     text-align: left;
   }
 `;
 
-const Thead = styled("thead")``;
+const Thead = styled("thead")`
+  th {
+    font-size: 0.75rem;
+  }
+`;
 
 const Tbody = styled("tbody")`
   height: 10rem;
@@ -97,4 +101,5 @@ const Tbody = styled("tbody")`
 const Tr = styled("tr")`
   background-color: ${(props) => props.theme.secondary};
   text-transform: uppercase;
+  font-size: 0.75rem;
 `;

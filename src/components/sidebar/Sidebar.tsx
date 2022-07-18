@@ -18,6 +18,7 @@ function Sidebar() {
           route="/wallet"
           icon={walleticon}
           children={[<AddWallet />]}
+          isWallet={true}
         />
         <MenuItem title="Last Transaction" icon={transicon} />
         <MenuItem title="Tutorials" icon={tuticon} />

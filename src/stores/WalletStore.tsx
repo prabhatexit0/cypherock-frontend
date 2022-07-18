@@ -1,5 +1,5 @@
 import create from "zustand";
-import { ICoin, IWallet } from "../interfaces/wallet.interfaces";
+import { IWallet } from "../interfaces/wallet.interfaces";
 
 const useStore = create<{
   wallets?: IWallet[];

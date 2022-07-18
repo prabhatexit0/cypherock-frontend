@@ -1,17 +1,30 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useWalletStore } from "../../stores/WalletStore";
+import WalletSubItem from "./WalletSubItem";
+import { IWallet } from "../../interfaces/wallet.interfaces";
 
 type MenuItemProps = {
   title: string;
+  icon: string;
   route?: string;
   children?: JSX.Element[] | null;
-  icon: string;
+  isWallet?: boolean;
 };
 
-function MenuItem({ title, route = "", children = null, icon }: MenuItemProps) {
+function MenuItem({
+  title,
+  icon,
+  route = "",
+  children = null,
+  isWallet = false,
+}: MenuItemProps) {
   const [showChildren, setShowChildren] = useState<boolean>(false);
   let navigate = useNavigate();
+
+  const { wallets } = useWalletStore();
+  console.log(wallets);
 
   const handleTitleClick = () => {
     setShowChildren((curr) => !curr);
@@ -25,6 +38,11 @@ function MenuItem({ title, route = "", children = null, icon }: MenuItemProps) {
         <img src={icon} alt="" /> {title}
       </TitleWrapper>
       <ChildrenContainer>
+        {isWallet && showChildren
+          ? wallets?.map((child: IWallet, idx) => (
+              <WalletSubItem name={child.name} key={idx} />
+            ))
+          : null}
         {showChildren
           ? children?.map((child: any) => <ChildWrapper>{child}</ChildWrapper>)
           : null}
@@ -45,7 +63,7 @@ const TitleWrapper = styled("div")`
 `;
 
 const ChildrenContainer = styled("div")`
-  margin-left: 3rem;
+  margin-left: 3.5rem;
   font-size: 0.75rem;
 `;
 const ChildWrapper = styled("div")`

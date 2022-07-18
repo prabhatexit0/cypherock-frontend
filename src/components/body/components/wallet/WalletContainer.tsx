@@ -1,17 +1,18 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Wallet from "./Wallet";
+import { useWalletStore } from "../../../../stores/WalletStore";
 
 function WalletPage() {
   const text = "Select or Add a Wallet";
-  const [selected, setSelected] = useState(true);
+  const { currentWallet } = useWalletStore();
 
   return (
     <>
-      {!selected ? (
+      {currentWallet === null || currentWallet === undefined ? (
         <WalletDisplayWrapper>{text}</WalletDisplayWrapper>
       ) : (
-        <Wallet />
+        <Wallet name={currentWallet.name} coins={currentWallet.coins} />
       )}
     </>
   );

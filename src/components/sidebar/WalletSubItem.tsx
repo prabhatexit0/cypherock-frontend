@@ -8,8 +8,15 @@ type WalletSubItemPropType = {
 };
 
 export default function WalletSubItem({ name }: WalletSubItemPropType) {
+  const { wallets, setCurrentWallet } = useWalletStore();
+
+  const getWallet = () => {
+    return wallets?.filter((wallet) => wallet.name === name)?.at(0);
+  };
+
   const handleOnClick = () => {
-    console.log("sub item click");
+    const wallet = getWallet();
+    setCurrentWallet!(wallet!);
   };
 
   return (
@@ -20,7 +27,7 @@ export default function WalletSubItem({ name }: WalletSubItemPropType) {
 }
 
 export function AddWallet() {
-  const { wallets, setWallets } = useWalletStore();
+  const { wallets, setWallets, setCurrentWallet } = useWalletStore();
 
   const handleAddWallets = () => {
     let name = "Wallet " + (wallets!?.length + 1).toString();
@@ -29,6 +36,7 @@ export function AddWallet() {
       coins: [],
     };
     setWallets!([...wallets!, wallet]);
+    setCurrentWallet!(wallet);
     console.log(wallets);
   };
 

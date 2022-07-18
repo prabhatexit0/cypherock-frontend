@@ -1,50 +1,43 @@
 import styled from "styled-components";
 import WalletTable from "./table/WalletTable";
 import { columns } from "./wallet-table-config";
-import addIcon from "../../../../assets/add-icon.svg";
-import deleteIcon from "../../../../assets/delete-icon.png";
+import { ReactComponent as AddIcon } from "../../../../assets/add-icon.svg";
+import { ReactComponent as DeleteIcon } from "../../../../assets/delete-icon.svg";
 import searchIcon from "../../../../assets/search-icon.svg";
-import { ICoin } from "../../../../interfaces/wallet.interfaces";
+import { ICoin, IWallet } from "../../../../interfaces/wallet.interfaces";
+import { useWalletStore } from "../../../../stores/WalletStore";
 
-const tableData: ICoin[] = [
-  {
-    coin: "Bitcoin",
-    holding: "0.05",
-    value: "$ 1.0002",
-  },
-  {
-    coin: "Ethereum",
-    holding: "0.05",
-    value: "$ 1.0002",
-  },
-  {
-    coin: "Binance",
-    holding: "0.05",
-    value: "$ 1.0002",
-  },
-];
+function Wallet({ name, coins }: IWallet) {
+  const { currentWallet, setCurrentWallet } = useWalletStore();
 
-function Wallet() {
+  const handleCoinAdd = () => {
+    let coin: ICoin = {
+      coin: "bitcoin",
+      holding: "12",
+      value: "12300",
+    };
+  };
+
   return (
     <WalletWrapper>
       <div className="default__container">
         <TextInput placeholder="Search Your Coin." />
         <DefaultBorderWrapper>
           <button>
-            <img src={addIcon} />
-            ADD COIN
+            <AddIcon onClick={handleCoinAdd} />
+            ADD ICON
           </button>
           {" | "}
           <button>
-            <img src={deleteIcon} />
+            <DeleteIcon />
             DELETE
           </button>{" "}
         </DefaultBorderWrapper>
       </div>
 
-      <WalletTitle>Wallet 1</WalletTitle>
+      <WalletTitle>{name}</WalletTitle>
 
-      <WalletTable data={tableData} columns={columns} />
+      <WalletTable data={coins} columns={columns} />
     </WalletWrapper>
   );
 }

@@ -4,7 +4,7 @@ import { columns } from "./wallet-table-config";
 import addIcon from "../../../../assets/add-icon.svg";
 import deleteIcon from "../../../../assets/delete-icon.png";
 import searchIcon from "../../../../assets/search-icon.svg";
-import { ICoin } from "./wallet.interfaces";
+import { ICoin } from "../../../../interfaces/wallet.interfaces";
 
 const tableData: ICoin[] = [
   {

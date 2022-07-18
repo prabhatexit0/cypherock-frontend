@@ -8,3 +8,8 @@ export interface ICoin {
   holding: string;
   value: string;
 }
+
+export interface IWallet {
+  name: string;
+  coins: ICoin[];
+}

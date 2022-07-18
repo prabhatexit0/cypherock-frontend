@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import MenuItem from "./menu/MenuItem";
+import MenuItem from "./MenuItem";
 import WalletSubItem from "./WalletSubItem";
+import { AddWallet } from "./WalletSubItem";
 import porticon from "../../assets/portfolio-icon.svg";
 import tuticon from "../../assets/tutorial-icon.svg";
 import walleticon from "../../assets/wallet-icon.svg";
@@ -8,11 +9,6 @@ import transicon from "../../assets/trans-icon.svg";
 import settingsicon from "../../assets/settings-icon.svg";
 
 function Sidebar() {
-  const walletItems = [];
-  for (let i = 1; i <= 3; i++) {
-    walletItems.push(<WalletSubItem index={i} />);
-  }
-
   return (
     <SidebarWrapper>
       <MenuItemsContainer>
@@ -21,7 +17,7 @@ function Sidebar() {
           title="Wallets"
           route="/wallet"
           icon={walleticon}
-          children={walletItems}
+          children={[<AddWallet />]}
         />
         <MenuItem title="Last Transaction" icon={transicon} />
         <MenuItem title="Tutorials" icon={tuticon} />

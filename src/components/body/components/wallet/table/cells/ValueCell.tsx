@@ -1,5 +1,5 @@
 import { CellWrapper } from "./cell.styled";
-import { ICoin } from "../../wallet.interfaces";
+import { ICoin } from "../../../../../../interfaces/wallet.interfaces";
 
 function ValueCell({ obj }: { obj: ICoin }) {
   const getValue = () => {

@@ -1,4 +1,4 @@
-import { IWalletTableColumn } from "./wallet.interfaces";
+import { IWalletTableColumn } from "../../../../interfaces/wallet.interfaces";
 
 export const columns: IWalletTableColumn[] = [
   {

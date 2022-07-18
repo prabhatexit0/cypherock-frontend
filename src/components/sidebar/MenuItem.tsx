@@ -45,7 +45,7 @@ const TitleWrapper = styled("div")`
 `;
 
 const ChildrenContainer = styled("div")`
-  margin-left: 4rem;
+  margin-left: 3rem;
   font-size: 0.75rem;
 `;
 const ChildWrapper = styled("div")`

@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import { ICoin, IWalletTableColumn } from "../wallet.interfaces";
+import {
+  ICoin,
+  IWalletTableColumn,
+} from "../../../../../interfaces/wallet.interfaces";
 import { CoinCell, HoldingCell, ValueCell, ActionCell } from "./cells";
 
 type WalletTablePropType = {

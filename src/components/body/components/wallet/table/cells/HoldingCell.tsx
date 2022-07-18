@@ -1,4 +1,4 @@
-import { ICoin } from "../../wallet.interfaces";
+import { ICoin } from "../../../../../../interfaces/wallet.interfaces";
 import { CellWrapper } from "./cell.styled";
 
 function HoldingCell({ obj }: { obj: ICoin }) {

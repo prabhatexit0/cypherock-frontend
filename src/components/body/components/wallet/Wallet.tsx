@@ -6,7 +6,7 @@ import { ReactComponent as DeleteIcon } from "../../../../assets/delete-icon.svg
 import searchIcon from "../../../../assets/search-icon.svg";
 import { ICoin, IWallet } from "../../../../interfaces/wallet.interfaces";
 import { useWalletStore } from "../../../../stores/WalletStore";
-import { usePopupContext } from "./PopupContext";
+import { usePopupContext } from "../../../popup/PopupContext";
 import RecievePopup from "../../../popup/PopupContainer";
 import { useState, useEffect } from "react";
 

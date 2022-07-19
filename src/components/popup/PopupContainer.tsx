@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { usePopupContext } from "../body/components/wallet/PopupContext";
+import { usePopupContext } from "./PopupContext";
 import { useWalletStore } from "../../stores/WalletStore";
 import Stepper, { StepType } from "./Stepper";
 import { DeviceStage } from "./Stages";
+import { useState } from "react";
 
 export default function PopupContainer() {
   return (
@@ -15,6 +16,8 @@ export default function PopupContainer() {
 function Popup() {
   const { setShowPopup } = usePopupContext();
   const { currentCoin } = useWalletStore();
+  const [activeStep, setActiveStep] = useState(0);
+
   const handlePopupClose = () => {
     setShowPopup(false);
     console.log(currentCoin);
@@ -38,7 +41,7 @@ function Popup() {
     <PopupWrapper>
       <button onClick={handlePopupClose}>close</button>
       <h1>Recieve</h1>
-      <Stepper steps={steps} />
+      <Stepper activeStep={activeStep} steps={steps} />
       <StageWrapper>
         <DeviceStage />
       </StageWrapper>

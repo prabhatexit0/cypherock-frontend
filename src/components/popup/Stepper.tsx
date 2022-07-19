@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useEffect, useRef } from "react";
+import React from "react";
 
 export type StepType = {
   value: number;
@@ -7,13 +9,25 @@ export type StepType = {
 
 export type StepperPropTypes = {
   steps: StepType[];
+  activeStep: number;
 };
 
-function Stepper({ steps }: StepperPropTypes) {
+function Stepper({ steps, activeStep }: StepperPropTypes) {
+  const stepRef: React.MutableRefObject<HTMLSpanElement>[] = Array(
+    steps.length
+  ).fill(useRef<HTMLSpanElement>());
+  useEffect(() => {
+    stepRef[activeStep].current.classList.add("active");
+    for (let i = 0; i < activeStep; i++) {
+      stepRef[i].current.classList.add("done");
+    }
+  }, [activeStep]);
+
   return (
     <StepperWrapper>
-      {steps.map((step) => (
-        <StepWrapper>
+      {steps.map((step, idx) => (
+        // @ts-ignore
+        <StepWrapper ref={stepRef[idx]}>
           <StepCount>{step.value}</StepCount>
           <StepLabel>{step.label}</StepLabel>
         </StepWrapper>
@@ -54,4 +68,8 @@ const StepWrapper = styled.span`
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+
+  .active {
+    background-color: white;
+  }
 `;

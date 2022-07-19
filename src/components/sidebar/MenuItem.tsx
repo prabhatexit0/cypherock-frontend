@@ -24,7 +24,6 @@ function MenuItem({
   let navigate = useNavigate();
 
   const { wallets } = useWalletStore();
-  console.log(wallets);
 
   const handleTitleClick = () => {
     setShowChildren((curr) => !curr);

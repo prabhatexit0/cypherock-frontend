@@ -6,7 +6,6 @@ export interface IWalletTableColumn {
 export interface ICoin {
   coin: string;
   holding: string;
-  value: string;
 }
 
 export interface IWallet {

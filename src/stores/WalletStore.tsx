@@ -6,7 +6,10 @@ const useStore = create<{
   setWallets?: (newWallets: IWallet[]) => void;
   currentWallet?: IWallet | null;
   setCurrentWallet?: (newWallet: IWallet) => void;
-  setCoinsCurrentWallet?: (coins: ICoin[]) => void;
+  currentCoin?: ICoin | null;
+  setCurrentCoin?: (currCoin: ICoin) => void;
+  filteredCoins?: ICoin[] | null;
+  setFilteredCoins?: (newCoins: ICoin[]) => void;
 }>((set) => ({
   wallets: [],
   setWallets: (newWallets: IWallet[]) => {
@@ -22,6 +25,20 @@ const useStore = create<{
       currentWallet: newWallet,
     }));
   },
+  currentCoin: null,
+  setCurrentCoin: (currCoin: ICoin) => {
+    set((state) => ({
+      ...state,
+      currentCoin: currCoin,
+    }));
+  },
+  filteredCoins: null,
+  setFilteredCoins: (newCoins: ICoin[] | null) => {
+    set((state) => ({
+      ...state,
+      filteredCoins: newCoins,
+    }));
+  },
 }));
 
 export const useWalletStore = () => {
@@ -30,5 +47,9 @@ export const useWalletStore = () => {
     setWallets: useStore((state) => state.setWallets),
     currentWallet: useStore((state) => state.currentWallet),
     setCurrentWallet: useStore((state) => state.setCurrentWallet),
+    currentCoin: useStore((state) => state.currentCoin),
+    setCurrentCoin: useStore((state) => state.setCurrentCoin),
+    filteredCoins: useStore((state) => state.filteredCoins),
+    setFilteredCoins: useStore((state) => state.setFilteredCoins),
   };
 };

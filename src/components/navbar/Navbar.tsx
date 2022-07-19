@@ -1,31 +1,29 @@
-import styled from 'styled-components'
-import cylogo from '../../assets/cylogo.svg'
+import styled from "styled-components";
+import cylogo from "../../assets/cylogo.svg";
 
 function Navbar() {
   return (
     <NavbarWrapper>
-      <LogoContainer
-        src={cylogo}
-      />
+      <LogoContainer src={cylogo} />
     </NavbarWrapper>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
 
-const NavbarWrapper = styled('nav')`
-  background-color: ${props => props.theme.bg};
+const NavbarWrapper = styled("nav")`
+  position: sticky;
+  background-color: ${(props) => props.theme.bg};
   height: 10vh;
   width: 100%;
-  border-bottom: 1px solid ${props => props.theme.border};
+  border-bottom: 1px solid ${(props) => props.theme.border};
 
   display: flex;
   align-items: center;
   padding: 0 2rem;
-
-`
+`;
 // Todo: CSS Fix
-const LogoContainer = styled('img')`
+const LogoContainer = styled("img")`
   height: auto;
-  width: 15%; 
-`
+  width: 15%;
+`;

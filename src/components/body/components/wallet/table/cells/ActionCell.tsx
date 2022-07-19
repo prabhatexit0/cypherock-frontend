@@ -2,12 +2,19 @@ import { CellWrapper } from "./cell.styled";
 import styled from "styled-components";
 import recIcon from "../../../../../../assets/recieve-icon.svg";
 import sendIcon from "../../../../../../assets/send-icon.svg";
+import { usePopupContext } from "../../PopupContext";
 
 function ActionCell() {
+  const { showPopup, setShowPopup } = usePopupContext();
+
+  const handleRecievePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
   return (
     <CellWrapper>
       <ButtonContainer>
-        <RecieveButton>
+        <RecieveButton onClick={handleRecievePopup}>
           <img src={recIcon} /> RECIEVE
         </RecieveButton>
         {" | "}

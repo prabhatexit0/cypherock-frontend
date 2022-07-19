@@ -8,7 +8,7 @@ function Body() {
     <MainDisplayWrapper>
       <Routes>
         <Route path="/" element={<Default />} />
-        <Route path="/wallet" element={<WalletContainer />} />
+        <Route path="/wallet/" element={<WalletContainer />} />
       </Routes>
     </MainDisplayWrapper>
   );

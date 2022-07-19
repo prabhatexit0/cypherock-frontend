@@ -4,6 +4,7 @@ import {
   IWalletTableColumn,
 } from "../../../../../interfaces/wallet.interfaces";
 import { CoinCell, HoldingCell, ValueCell, ActionCell } from "./cells";
+import { useWalletStore } from "../../../../../stores/WalletStore";
 
 type WalletTablePropType = {
   data: ICoin[];
@@ -11,6 +12,12 @@ type WalletTablePropType = {
 };
 
 function WalletTable({ data, columns }: WalletTablePropType) {
+  const { setCurrentCoin } = useWalletStore();
+
+  const handleCoinSelect = (id: string, coin: ICoin) => {
+    setCurrentCoin!(coin);
+  };
+
   return (
     <TableWrapper>
       <div className="tool__container">
@@ -32,7 +39,11 @@ function WalletTable({ data, columns }: WalletTablePropType) {
         </Thead>
         <Tbody>
           {data.map((obj, idx) => (
-            <Tr key={idx}>
+            <Tr
+              key={idx}
+              id={"tr" + idx}
+              onClick={(e) => handleCoinSelect("tr" + idx, obj)}
+            >
               <CoinCell coin={obj.coin} />
               <HoldingCell obj={obj} />
               <ValueCell obj={obj} />

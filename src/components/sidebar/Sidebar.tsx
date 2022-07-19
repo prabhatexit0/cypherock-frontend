@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import MenuItem from "./MenuItem";
-import WalletSubItem from "./WalletSubItem";
 import { AddWallet } from "./WalletSubItem";
 import porticon from "../../assets/portfolio-icon.svg";
 import tuticon from "../../assets/tutorial-icon.svg";

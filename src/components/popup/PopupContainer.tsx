@@ -1,104 +1,101 @@
 import styled from "styled-components";
 import { usePopupContext } from "../body/components/wallet/PopupContext";
 import { useWalletStore } from "../../stores/WalletStore";
+import Stepper, { StepType } from "./Stepper";
+import { DeviceStage } from "./Stages";
 
-function RecievePopup() {
+export default function PopupContainer() {
+  return (
+    <BlackBackground>
+      <Popup />
+    </BlackBackground>
+  );
+}
+
+function Popup() {
   const { setShowPopup } = usePopupContext();
   const { currentCoin } = useWalletStore();
-
   const handlePopupClose = () => {
     setShowPopup(false);
     console.log(currentCoin);
   };
+  const steps: StepType[] = [
+    {
+      value: 1,
+      label: "Device",
+    },
+    {
+      value: 2,
+      label: "Verification",
+    },
+    {
+      value: 3,
+      label: "Receive",
+    },
+  ];
 
   return (
     <PopupWrapper>
-      <PopupStyled>
-        <button onClick={handlePopupClose}>close</button>
-        <StageCountWrapper>
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-        </StageCountWrapper>
-        Verify Address on Device
-        <Instruction instruction="Please Match the Address to be Shown in X1 Wallet" />
-      </PopupStyled>
+      <button onClick={handlePopupClose}>close</button>
+      <h1>Recieve</h1>
+      <Stepper steps={steps} />
+      <StageWrapper>
+        <DeviceStage />
+      </StageWrapper>
     </PopupWrapper>
   );
 }
 
-function CountWithLabel() {
-  return <span></span>;
-}
-
-export default RecievePopup;
-
-type InstructionPropTypes = {
-  instruction: string;
-  status?: boolean;
-};
-
-function Instruction({ instruction, status = false }: InstructionPropTypes) {
-  return <InstructionWrapper>{instruction}</InstructionWrapper>;
-}
-
-const StageCountWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  gap: 5rem;
-  color: #707070;
-
-  span {
-    border-radius: 50%;
-    border: 2px solid #707070;
-    height: 2rem;
-    width: 2rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-const PopupStyled = styled.div`
-  background-color: #13161a;
+const PopupWrapper = styled.div`
   height: 90%;
   width: 50rem;
-  border-radius: 0.75em;
-  padding: 1rem;
+  background: ${(props) => props.theme.bg};
+  border-radius: 1em;
 
   button {
-    position: float;
-    align-self: flex-end;
     background: none;
-    border: none;
-    outline: none;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
     color: white;
-    border: 2px solid white;
-    border-radius: 1em;
-    padding: 0.5em 1rem;
+    display: float;
+    float: right;
+    margin: 1rem;
+    border-radius: 0.5em;
     cursor: pointer;
-    width: 5rem;
+
+    &:hover {
+      background: white;
+      color: black;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 5rem;
   }
 `;
 
-const PopupWrapper = styled.div`
+const BlackBackground = styled.div`
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  width: 100%;
   top: 0;
   left: 0;
+  z-index: 999;
+
+  height: 100vh;
+  width: 100vw;
+
+  background: rgba(0, 0, 0, 0.8);
 
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const InstructionWrapper = styled.div`
-  background-color: #212427;
-  padding: 1rem;
-  border-radius: 0.5em;
-  width: 80%;
+const StageWrapper = styled.div`
+  height: max-content;
+  margin: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

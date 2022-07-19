@@ -6,17 +6,23 @@ import WalletSubItem from "./WalletSubItem";
 import { IWallet } from "../../interfaces/wallet.interfaces";
 
 type MenuItemProps = {
+  index: number;
   title: string;
   icon: string;
   route?: string;
   children?: JSX.Element[] | null;
   isWallet?: boolean;
+  isActive: boolean;
+  handleActiveStatus: (idx: number) => void;
 };
 
 function MenuItem({
+  index,
   title,
   icon,
   route = "",
+  isActive,
+  handleActiveStatus,
   children = null,
   isWallet = false,
 }: MenuItemProps) {
@@ -26,13 +32,14 @@ function MenuItem({
   const { wallets } = useWalletStore();
 
   const handleTitleClick = () => {
+    handleActiveStatus(index);
     setShowChildren((curr) => !curr);
     navigate(route, { replace: true });
   };
 
   return (
     <MenuItemWrapper>
-      <TitleWrapper onClick={handleTitleClick}>
+      <TitleWrapper isActive={isActive} onClick={handleTitleClick}>
         {" "}
         <img src={icon} alt="" /> {title}
       </TitleWrapper>
@@ -52,13 +59,15 @@ function MenuItem({
 
 export default MenuItem;
 
-const TitleWrapper = styled("div")`
+const TitleWrapper = styled("div")<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   gap: 1rem;
   font-size: 0.85rem;
   padding: 1rem;
   font-family: "Avenir LT Std 35 Light";
+  color: ${(props) => (props.isActive ? props.theme.active : "white")};
+  user-select: none;
 `;
 
 const ChildrenContainer = styled("div")`

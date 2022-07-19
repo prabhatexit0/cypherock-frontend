@@ -1,22 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 import { ITheme } from "./theme";
 
-export const lightTheme: ITheme = {
-  bg: "#FFFFFF",
-  font: "#324861",
-  primary: "#EBF6FE",
-  secondary: "#F3F0EC",
-  active: "#FD925F",
-  success: "#d0f0c0",
-  border: "#1A1F26",
-};
-
 export const darkTheme: ITheme | any = {
   bg: "#0A1018",
   font: "#d7d7d7",
   primary: "#C78D4E",
   secondary: "#161C23",
-  active: "#FD925F",
+  active: "#E19A4C",
   success: "#123524",
   border: "#1c2027",
 };

@@ -54,6 +54,7 @@ const WalletSubItemWrapper = styled("div")`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: ${(props) => props.theme.active};
 
   .three__dot {
     font-weight: bold;
